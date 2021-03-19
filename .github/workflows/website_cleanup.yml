@@ -1,7 +1,6 @@
 name: Cleanup container registry
 on:
-  repository_dispatch:
-    types: [cleanup]
+  push:
 
 jobs:
   cleanup:
@@ -18,3 +17,5 @@ jobs:
         uses: werf/actions/cleanup@v1.2
         env:
           WERF_DIR: "docs/documentation"
+          WERF_DRY_RUN: "1"
+          WERF_DEBUG: "1"
